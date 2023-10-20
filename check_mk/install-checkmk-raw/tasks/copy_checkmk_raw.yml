@@ -1,0 +1,18 @@
+---
+  - name: Copy checkmk raw
+    copy:
+      src: check-mk-raw-2.1.0p30-el8-38.x86_64.rpm
+      dest: /tmp/check-mk-raw-2.1.0p30-el8-38.x86_64.rpm
+
+  - name: List check-mk-raw downloaded file
+    shell: ls /tmp/check-mk-raw-2.1.0p30*
+    register: downlist
+  
+  - name: copy graphviz-gd
+    copy:
+      src: graphviz-gd-2.40.1-44.el8.x86_64.rpm
+      dest: /tmp/graphviz-gd-2.40.1-44.el8.x86_64.rpm
+  
+  - name: List graphviz downloaded file
+    shell: ls /tmp/graphviz-gd*
+    register: graphvizdown

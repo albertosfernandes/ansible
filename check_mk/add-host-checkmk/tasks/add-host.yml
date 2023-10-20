@@ -1,0 +1,21 @@
+---
+  - name: Create a host with module checkmk with IP address
+    checkmk.general.host:
+      server_url: "{{ settings.server_url }}"
+      site: "{{ settings.site }}"
+      automation_user: "{{ settings.automation_user }}"
+      automation_secret: "{{ settings.automation_secret }}"
+      name: "{{ item.value.name }}"
+      attributes:
+        alias: "{{ item.value.alias }}"
+        ipaddress: "{{ item.value.ip }}"
+      folder: "{{ item.value.folder }}"
+      state: present
+    loop: "{{ lookup('dict', listhost) }}"
+    register: addhostlog
+    until: "addhostlog.changed | bool"
+    notify: "activate changes"
+
+  - name: show exit stdout
+    ansible.builtin.debug:
+      var: addhostlog.stdout

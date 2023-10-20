@@ -1,0 +1,6 @@
+---
+  - name: Start service xinetd, if not started
+    ansible.builtin.service:
+      name: xinetd
+      state: started
+      enabled: true

@@ -1,0 +1,11 @@
+---
+  - name: "Create a single folder."
+    checkmk.general.folder:
+      server_url: "{{ settings.server_url }}"
+      site: "{{ settings.site }}"
+      automation_user: "{{ settings.automation_user }}"
+      automation_secret: "{{ settings.automation_secret }}"
+      path: "{{ item.path }}"
+      name: "{{ item.name }}"
+      state: "present"
+    loop: "{{ listfolder }}"

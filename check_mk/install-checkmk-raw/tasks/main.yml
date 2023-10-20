@@ -1,0 +1,13 @@
+---
+# tasks file for install_check_mk_raw
+- name: Copy install Check_MK Raw
+  import_tasks: copy_checkmk_raw.yml
+  tags: checkmk_linux_copy
+
+- name: Install Check_MK Raw and dependences
+  import_tasks: install_checkmk_raw.yml
+  tags: checkmk_linux_install
+
+# - name: Start xinetd service
+#   import_tasks: start_xinetd_service.yml
+#   tags: checkmk_linux_restart_xinetd

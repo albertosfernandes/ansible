@@ -1,0 +1,6 @@
+---
+- hosts: checkmk
+  gather_facts: true
+  become: yes
+  roles:
+    - setup-checkmk-initial

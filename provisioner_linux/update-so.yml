@@ -1,0 +1,8 @@
+---
+- name: Update
+  hosts: all
+  gather_facts: true
+  roles:
+    - role: base-so
+      become: yes
+      become_method: sudo

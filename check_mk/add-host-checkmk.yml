@@ -1,0 +1,5 @@
+---
+- hosts: checkmk
+  gather_facts: true
+  roles:
+    - add-host-checkmk

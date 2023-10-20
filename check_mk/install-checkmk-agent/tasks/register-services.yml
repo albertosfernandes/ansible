@@ -1,0 +1,13 @@
+---
+- name: stop and disable a service daemon linux
+  ansible.builtin.systemd:
+    name: cmk-agent-ctl-daemon
+    state: stopped
+    enabled: false
+  when: ansible_os_family == 'RedHat'
+
+- name: restart a service linux
+  ansible.builtin.service:
+    name: xinetd
+    state: restarted
+  when: ansible_os_family == 'RedHat'

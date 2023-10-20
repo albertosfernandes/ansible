@@ -1,0 +1,19 @@
+---
+# vars file for add-host-checkmk
+settings:
+  server_url: "http://192.168.15.101/"
+  site: "asfdatacenter"
+  automation_user: "automation"
+  automation_secret: "pass010203"
+listhost:
+  host01:
+    name: "host-linux-1"
+    alias: "Linux 1 192.168.15.102"  
+    ip: "192.168.15.102"
+    folder: "/"
+  host02:
+    name: "host-linux-2"
+    alias: "Linux 2 192.168.15.102"  
+    ip: "192.168.15.102"
+    folder: "/"
+  

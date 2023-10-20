@@ -1,0 +1,12 @@
+---
+# vars file for add-folder-checkmk
+settings:
+  server_url: "http://192.168.15.101/"
+  site: "asfdatacenter"
+  automation_user: "automation"
+  automation_secret: "pass010203"
+listfolder:
+  - path: /sre-plat1
+    name: sre-plat1
+  - path: /sre-plat2
+    name: sre-plat2

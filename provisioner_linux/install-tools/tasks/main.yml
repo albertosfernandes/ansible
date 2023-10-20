@@ -1,0 +1,7 @@
+---
+# tasks file for install-tools
+  - name: install a vim
+    become: true
+    ansible.builtin.package:
+      name: vim
+      state: present

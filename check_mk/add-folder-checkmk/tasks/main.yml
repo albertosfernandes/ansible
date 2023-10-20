@@ -1,0 +1,5 @@
+---
+# tasks file for add-folder-checkmk
+- name: Add a folder
+  import_tasks: add-folder.yml
+  tags: add-folder-cmk

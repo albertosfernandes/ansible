@@ -1,0 +1,6 @@
+---
+- name: intall a package from a file rpm
+  yum:
+    name: "{{ cmkagentfile.stdout }}"
+    state: present
+    disable_gpg_check: yes

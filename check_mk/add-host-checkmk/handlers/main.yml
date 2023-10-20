@@ -1,0 +1,10 @@
+---
+# handlers file for add-host-checkmk
+- name: "Activate changes"
+  listen: activate changes
+  checkmk.general.activation:
+      server_url: "{{ settings.server_url }}"
+      site: "{{ settings.site }}"
+      automation_user: "{{ settings.automation_user }}"
+      automation_secret: "{{ settings.automation_secret }}"
+  run_once: true

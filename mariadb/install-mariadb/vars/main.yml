@@ -1,0 +1,9 @@
+---
+# vars file for install-mariadb
+dbnodes:
+  dbnode1: 
+    name: node1
+    ip: 192.168.15.111
+  dbnode2:
+    name: node2 
+    ip: 192.168.15.112

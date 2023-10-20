@@ -1,0 +1,46 @@
+---
+  - name: register a comand stdout
+    become: true
+    ansible.builtin.command: omd sites
+    register: resultsite
+    tags:
+      - verify-sites-created
+
+  - name: Create site 
+    command: "omd create {{ checkmk_site_name }}"
+    when: resultsite.stdout is not defined
+    register: createsite
+
+  # extra vars admin_pw passado como parâmetro --extra-vars "admin_pw=*******"
+  - name: "Update Site Admin Password for Checkmk < 2.1." 
+    become: true
+    ansible.builtin.shell: |
+      set -o pipefail
+      echo '{{ admin_pw }}' | htpasswd -i -B -C 12 /omd/sites/{{ checkmk_site_name }}/etc/htpasswd cmkadmin   
+    args:
+      executable: /bin/bash
+    when: createsite.stdout is defined
+    register: changepassword
+    tags:
+      - set-site-admin-pw
+
+  - name: "Start Sites."
+    become: true
+    ansible.builtin.shell: |  
+      omd start {{ checkmk_site_name }}
+    args:
+      executable: /bin/bash
+    when: createsite.stdout is defined    
+    register: checkmk_server_sites_started
+    tags:
+      - start-sites
+
+  - name: "Enable httpd can network connect selinux boolean."
+    become: true
+    ansible.posix.seboolean:
+      name: httpd_can_network_connect
+      state: true
+      persistent: true
+    when: ansible_facts.selinux.status == 'enabled'
+    tags:
+      - set-selinux-boolean

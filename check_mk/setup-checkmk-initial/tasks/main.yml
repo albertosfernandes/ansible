@@ -1,0 +1,5 @@
+---
+  - name: Create site 
+    import_tasks: create_site.yml
+    tags: create_site
+      

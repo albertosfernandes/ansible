@@ -1,0 +1,21 @@
+---
+# tasks file for init-db
+  - name: Create database
+    become: yes
+    shell: sudo mysql -e "CREATE DATABASE asfapi;"
+    tags: create database
+
+  - name: Create user
+    become: yes
+    shell: sudo mysql -e "CREATE USER 'master'@'%' IDENTIFIED BY '{{mysql_user}}';"
+    tags: create user
+
+  - name: Grant privileges
+    become: yes
+    shell: sudo mysql -e "GRANT ALL PRIVILEGES ON *.* TO 'master'@'%';"
+    tags: grant-privileges
+
+  - name: Flush privileges
+    become: yes
+    shell: sudo mysql -e "FLUSH PRIVILEGES;"
+    tags: flush-privileges

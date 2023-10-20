@@ -1,0 +1,3 @@
+---
+# vars file for setup-checkmk-initial
+checkmk_site_name: cmk_asf

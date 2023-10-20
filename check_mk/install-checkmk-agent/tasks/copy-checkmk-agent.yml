@@ -1,0 +1,22 @@
+---
+- name: copy a file for linux
+  ansible.builtin.copy:
+    src: check-mk-agent-2.1.0p30.noarch.rpm
+    dest: /tmp/check-mk-agent-2.1.0p30.noarch.rpm
+    owner: root
+    group: root
+    mode: 644
+
+- name: execute a shell command ls
+  shell: ls /tmp/check-mk-agent*
+  register: cmkagentfile
+
+- name: copy a file for linux
+  ansible.builtin.copy:
+    src: check_mk
+    dest: /etc/xinetd.d/check_mk
+    owner: root
+    group: root
+    mode: '0644'
+
+

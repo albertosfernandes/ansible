@@ -1,0 +1,16 @@
+---
+# tasks file for base-so
+- name: Update Red-Hat
+  yum:
+    name: '*'
+    state: latest
+  when: ansible_os_family == 'Red-Hat'
+  register: yum_out
+
+- name: Update Ubuntu
+  become: yes
+  apt:
+    name: '*'
+    state: latest
+  when: ansible_os_family == 'Debian'
+  register: apt_out

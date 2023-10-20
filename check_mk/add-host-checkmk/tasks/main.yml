@@ -1,0 +1,4 @@
+---
+- name: Add a host
+  import_tasks: add-host.yml
+  tags: add-host-cmk

@@ -1,0 +1,13 @@
+---
+# tasks file for install-checkmk-agent
+- name: call a role copy checkmk file
+  import_tasks: copy-checkmk-agent.yml
+  tags: copy-checkmk-agent-file
+
+# - name: call a role install checkmk
+#   import_tasks: install-checkmk-agent.yml
+#   tags: install-checkmk-agent
+
+# - name: call a role register services
+#   import_tasks: register-services.yml
+#   tags: register-services

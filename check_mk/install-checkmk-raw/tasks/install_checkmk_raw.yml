@@ -1,0 +1,9 @@
+---
+  - name: install a packages with yum and all dependence
+    ansible.builtin.package:
+      name:
+        - "{{ graphvizdown.stdout }}"
+        - xinetd
+        - "{{ downlist.stdout }}"
+      state: present
+      disable_gpg_check: yes
