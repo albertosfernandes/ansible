@@ -1,0 +1,6 @@
+---
+- name: Executar dnf update
+  dnf:
+    name: '*'
+    state: latest
+  register: dnf_update

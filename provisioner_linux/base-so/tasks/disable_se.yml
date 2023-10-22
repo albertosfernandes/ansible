@@ -1,0 +1,17 @@
+---
+- name: disable selinux
+  ansible.posix.selinux:
+    state: disabled
+  become: true
+
+- name: disable firewalld
+  ansible.builtin.service:
+    name: firewalld
+    state: stopped
+    enabled: false
+  become: true
+
+- name: reboot system
+  ansible.builtin.reboot:
+    reboot_timeout: 300
+  become: true
