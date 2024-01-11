@@ -2,8 +2,8 @@
   - name: install a packages with yum and all dependence
     ansible.builtin.package:
       name:
-        - "{{ graphvizdown.stdout }}"
+        - graphviz
         - xinetd
-        - "{{ downlist.stdout }}"
+        - check-mk-raw-2.1.0p38-el9-38.x86_64.rpm
       state: present
       disable_gpg_check: yes

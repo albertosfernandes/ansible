@@ -1,0 +1,5 @@
+---
+  - name: Download cmk raw install
+    get_url:
+      url: "https://download.checkmk.com/checkmk/2.1.0p38/check-mk-raw-2.1.0p38-el9-38.x86_64.rpm"
+      dest: /tmp/check-mk-raw-2.1.0p38-el9-38.x86_64.rpm
