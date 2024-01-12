@@ -2,7 +2,5 @@
 - hosts: checkmk
   gather_facts: true
   roles:
-    - role: install-checkmk-raw
-      become: yes
-      become_method: sudo
+    - name: instalar-cmk-raw
       src: https://github.com/albertosfernandes/ansible.git
