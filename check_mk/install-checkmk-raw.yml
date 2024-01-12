@@ -1,5 +1,5 @@
 ---
-- hosts: checkmk
+- hosts: all
   tasks:
     - name: Download cmk raw install
       get_url:
