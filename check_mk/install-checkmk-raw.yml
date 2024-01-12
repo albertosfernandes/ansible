@@ -5,4 +5,4 @@
     - role: install-checkmk-raw
       become: yes
       become_method: sudo
-      src: https://github.com/albertosfernandes/ansible/tree/main/check_mk/install-checkmk-raw
+      src: https://github.com/albertosfernandes/ansible.git
