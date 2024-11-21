@@ -1,0 +1,17 @@
+---
+all:
+  children:  
+    myhome:
+      hosts:
+        k8scontrolnode:
+          ansible_host: 192.168.15.190
+          ansible_user: root
+          ansible_ssh_private_key_file: "vms-oracle-virtual-box"
+          ansible_become: true
+          ansible_become_method: sudo
+        k8sworker1:
+          ansible_host: 192.168.15.191
+          ansible_user: root
+          ansible_ssh_private_key_file: "vms-oracle-virtual-box"
+          ansible_become: true
+          ansible_become_method: sudo

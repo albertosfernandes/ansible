@@ -1,0 +1,10 @@
+---
+- name: Instalar o K8s
+  hosts: k8sworker1
+  become: true
+
+  tasks:
+    - name: Instalar o k8s
+      ansible.builtin.include_tasks:
+        file: ./kubernetes/tasks/install-k8s.yml
+        
